@@ -15,6 +15,7 @@ DATE_TIME_FORMAT = "%Y-%m-%d %H:%M:%S"
 #POTD
 POTD_STATS = "POTD_STATS"
 POTD_DETAIL = "POTD DETAIL"
+POTD_QUESTION_BODY = "POTD_QUESTION_BODY"
 
 POTD_BODY = """
     query dailyChallenge {
@@ -48,6 +49,28 @@ POTD_DETAIL_BODY = """
                 topicTags {
                     name
                 }
+            }
+        }
+    }
+"""
+
+POTD_QUESTION_BODY = """
+    query questionData {
+        question(
+            titleSlug: "?"
+        ) {
+            questionId
+            questionFrontendId
+            title
+            titleSlug
+            difficulty
+            content
+            exampleTestcases
+            metaData
+            codeSnippets {
+                lang
+                langSlug
+                code
             }
         }
     }
